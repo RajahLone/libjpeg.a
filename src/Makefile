@@ -13,14 +13,19 @@ FLAGS = $(CROSSPREFIX)flags
 
 CFLAGS = -I../include -I. -W
 
-OFLAGS = -Wall -O2 -fomit-frame-pointer -Wno-unused-parameter
+OFLAGS = -Wall -O2 -fomit-frame-pointer -Wno-unused-parameter -Wno-implicit-fallthrough
 
 OBJS = jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.c jcdctmgr.c jchuff.c \
        jcinit.c jcmainct.c jcmarker.c jcmaster.c jcomapi.c jcparam.c jcprepct.c jcsample.c \
        jctrans.c jdapimin.c jdapistd.c jdarith.c jdatadst.c jdatasrc.c jdcoefct.c jdcolor.c \
        jddctmgr.c jdhuff.c jdinput.c jdmainct.c jdmarker.c jdmaster.c jdmerge.c jdpostct.c \
        jdsample.c jdtrans.c jerror.c jfdctflt.c jfdctfst.c jfdctint.c jidctflt.c jidctfst.c \
-       jidctint.c jquant1.c jquant2.c jutils.c jmemmgr.c jmemnobs.c
+       jidctint.c jquant1.c jquant2.c jutils.c jmemmgr.c \
+       jmemldg.c
+
+# jmemldg.c -> this lib will need -lldg for linking.
+#              if you want to be independant (but less secure under MagiC),
+#              then replace jmemldg.c by jmemnobs.c (or other memory layer)
 
 libjpeg.a:
 	mkdir -p ../lib
