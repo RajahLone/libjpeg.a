@@ -24,8 +24,8 @@ OBJS = jaricom.c jcapimin.c jcapistd.c jcarith.c jccoefct.c jccolor.c jcdctmgr.c
 
 libjpeg.a:
 	mkdir -p ../lib
-	mkdir -p ../build/68020
-	mkdir -p ../build/ColdFire
+	mkdir -p ../lib/m68020-60
+	mkdir -p ../lib/m5475
 
 	$(CC) $(CFLAGS) -m68000 $(OFLAGS) -c $(OBJS)
 	$(AR) -rcs $@ *.o
